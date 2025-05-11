@@ -7,10 +7,10 @@
 5. **Météo via API**
 6. **Galerie d'images**
 7. **Quiz en ligne**
+8. **Système de connexion/inscription**
 ## POO, MVC, sécurité, AJAX
-1. **Système de connexion/inscription**
-2. **Blog avec panneau admin**
-3. **Système de newsletter**
+1. **Blog avec panneau admin**
+2. **Système de newsletter**
 3. **Catalogue de produits**
 4. **Forum basique**
 5. **Upload de fichiers sécurisé**

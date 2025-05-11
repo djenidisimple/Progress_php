@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de contact avec envoi d'email</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <?php
@@ -33,32 +34,35 @@
                 $mail->Body = 'This is a test.';
                 //send the message, check for errors
                 if (!$mail->send()) {
-                    echo "ERROR: " . $mail->ErrorInfo;
+                    $error = "Error: le message n'a pas pu être envoyé";
                 } else {
-                    echo "SUCCESS";
+                    $succes = "Success";
                 }
             }
         }
     ?>
-    <h1>Formulaire de contact avec envoi d'email</h1>
-    <form action="" method="post">
-        <?php
-            if ($succes) {
-                echo "<p style='color: green;'>$succes</p>";
-            }
-            if ($error) {
-                echo "<p style='color: red;'>$error</p>";
-            }
-        ?>
-        <label for="name">Nom:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
-        <input type="submit" value="Envoyer">
-    </form>
+    <div class="center">
+        <form action="" method="post" class="card">
+            <h1 class="center-text">Contacter nous</h1>
+            <br><hr>
+            <?php
+                if ($succes) {
+                    echo "<div class='message-succes'>$succes</div>";
+                }
+                if ($error) {
+                    echo "<div class='message-error'>$error</div>";
+                }
+            ?>
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" placeholder="Entrer votre nom ici..." required><br><br>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Entrer votre email ici..." required><br><br>
+    
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4" cols="38" required></textarea><br><br>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
 </body>
 </html>
