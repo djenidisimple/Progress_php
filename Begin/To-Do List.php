@@ -1,7 +1,11 @@
 <?php 
 // To-Do List
 // Preparation of connexion to the database
-include "../../Config/config.php";
+if (isset($url)) {
+    require_once "../Config/config.php";
+} else {
+    require_once "../../Config/config.php";
+}
 function connexion(): PDO
 {
     try {
@@ -9,6 +13,20 @@ function connexion(): PDO
         return $conn;
     } catch (PDOException $e) {
         return "Connection failed: " . $e->getMessage();
+    }
+}
+function getCustomer($name, $psw): bool
+{
+    try {
+        $conn = connexion();
+        $sql = "SELECT * FROM customer WHERE name = :name";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $stmt->execute();
+        $password = $stmt->fetch(PDO::FETCH_ASSOC)['psw'];
+        return password_verify($psw, $password);
+    } catch (PDOException $e) {
+        return false;
     }
 }
 function createTable(): void
