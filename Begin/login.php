@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php
-        $error = $pseudo = $psw = $succes = null;
+        $pseudo = $psw = $error = $pseudo = $psw = $succes = null;
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $pseudo = $_POST["pseudo"];
             $psw = $_POST["psw"];
@@ -44,29 +44,20 @@
             <p class="message-success center-text"><?= $succes;?></p>
             <?php endif;?>
             <br>
-            <div>
+            <div style="width: auto;padding-right: 10px;">
                 <label>Pseudo</label>
-                <input type="text" name="pseudo" placeholder="Entrer ici votre pseudo..." required>
+                <input type="text" name="pseudo" placeholder="Entrer ici votre pseudo..." value="<?= $pseudo;?>" required>
             </div>
-            <div>
+            <div style="width: auto;padding-right: 10px;">
                 <label>Mot de passe</label>
-                <input type="password" name="psw" id="psw" placeholder="Entrer ici votre mot de passe..." required>
+                <input type="password" name="psw" id="psw" placeholder="Entrer ici votre mot de passe..." value="<?= $psw;?>" required>
                 <button type="button" style="width: 30px;height: 30px;position: relative;top: -36px;left: 325px;background: url(icon/hide.png) center no-repeat;background-size: 100%;border: 0;" onclick="password(this)"></button>
             </div>
-            <br>
             <button class="btn" type="submit" style="width: 100%;">se connecter</button>
+            <br>
+            <a href="Register.php">s'inscrire</a>
         </form>
     </div>
-    <script>
-        function password(value) {
-            if (value.style.backgroundImage == 'url("icon/view.png")') {
-                value.style.backgroundImage = "url(icon/hide.png)";
-                document.querySelector("#psw").type = "password";
-            } else {
-                value.style.backgroundImage = "url(icon/view.png)";
-                document.querySelector("#psw").type = "text";
-            }
-        }
-    </script>
+    <script src="js/JavaScript.js"></script>
 </body>
 </html>

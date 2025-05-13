@@ -15,6 +15,22 @@ function connexion(): PDO
         return "Connection failed: " . $e->getMessage();
     }
 }
+function createCustomer(string $name, string $psw, string $email)
+{
+    try {
+        $conn = connexion();
+        $sql = "INSERT INTO customer (name, psw, email) VALUES (:name, :psw, :email)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':name', $name);
+        $psw = password_hash($psw, PASSWORD_DEFAULT);
+        $stmt->bindParam(':psw', $psw);
+        $stmt->bindParam(':email', $email);
+        $stmt->execute();
+        return true;
+    } catch (PDOException $e) {
+        return false;
+    }
+}
 function getCustomer($name, $psw): bool
 {
     try {
