@@ -15,11 +15,138 @@ table, tr, th, td{
 }
 input{
     width: 100%;
+    height: 35px;
     padding: 8px;
     border: 0;
-    border-bottom: 2px solid rgb(46, 45, 45);
+    background: rgb(204, 197, 197);
     border-radius: 4px;
-    margin: 5px;
+    margin-bottom: 20px;
+}
+.eyes {
+    width: 35px;
+    height: 35px;
+    margin-left: 2px;
+    background: url(../icon/hide.png) center no-repeat;
+    background-size: 80%;
+    border: 0;
+}
+.photo {
+    width: 150px;
+    height: 150px;
+    background: gray;
+    background-size: 80%;
+    border-radius: 150px;
+}
+input:focus {
+    border: 0;
+}
+::placeholder {
+    color: rgb(75, 74, 74);
+}
+input[type="file"] {
+    border: 0;
+    outline: none;
+    color: transparent;
+}
+.input-file::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.input-file {
+    cursor: pointer;
+    width: 40px;
+    margin-top: 122px;
+    margin-left: -52px;
+    border-radius: 50px;
+    background: dodgerblue url(../icon/camera-to-take-photos.png) center no-repeat;
+    background-size: 60%;
+}
+.bg-white {
+    background: white;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.nav-left {
+    position: absolute;
+    width: 75px;
+    height: 100%;
+    border-right: 1px solid rgba(0, 0, 0, 0.3);
+    margin-right: 100px;
+}
+.align-nav {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.icon {
+    display: block;
+    width: 45px;
+    height: 40px;
+    border-radius: 8px;
+    background: transparent;
+    margin: 15px;
+    background-size: 50%;
+}
+.round {
+    border-radius: 48%;
+}
+.icon-home {
+    background: url('../icon/home.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-home:hover {
+    background: rgba(224, 224, 224, 0.6) url('../icon/home.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-add {
+    background: url('../icon/add.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-add:hover {
+    background: rgba(224, 224, 224, 0.6) url('../icon/add.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-cloche {
+    background: url('../icon/bell.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-cloche:hover {
+    background: rgba(224, 224, 224, 0.6) url('../icon/bell.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-sms {
+    background: url('../icon/messenger.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-sms:hover {
+    background: rgba(224, 224, 224, 0.6) url('../icon/messenger.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-arrow-down {
+    margin-left: -14px;
+    margin-top: 8px;
+    background: url('../icon/arrow-down.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-arrow-down:hover {
+    background: rgba(224, 224, 224, 0.6) url('../icon/arrow-down.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-profile {
+    border: 2px solid black;
+    border-radius: 50px;
+    margin-top: 5px;
+    background: url('../icon/user.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-logo {
+    background: url('../icon/pinterest.png') center no-repeat;
+    background-size: 50%;
+}
+.icon-logo:hover {
+    background: rgba(224, 224, 224, 0.6) url('../icon/pinterest.png') center no-repeat;
+    background-size: 50%;
 }
 textarea{
     width: 100%;
@@ -79,7 +206,9 @@ label {
     transform: translate(-50%, -150%);
 }
 .center-text {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .center{
     display: flex;
@@ -87,6 +216,22 @@ label {
     align-items: center;
     flex-wrap: wrap;
     height: 100vh;
+}
+.profile {
+    cursor: pointer;
+    margin-left: 10px;
+    width: 70px;
+    height: 60px;
+    background: gray;
+    border: 2px solid black;
+    border-radius: 60px;
+    padding: 13px;
+}
+.compte {
+    width: 10px;
+    height: 10px;
+    background: red;
+    color: white;
 }
 .center-box {
     display: flex;
@@ -197,7 +342,8 @@ label {
     border-radius: 8px;
 }
 .btn:hover {
-    background-color: #0056b3;
+    border: 2px solid #0056b3;
+    /* background-color: #0056b3; */
 }
 @keyframes zoom-in {
     0% {

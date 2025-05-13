@@ -14,10 +14,11 @@
             $pseudo = $_POST["pseudo"];
             $psw = $_POST["psw"];
             $email = $_POST["email"];
+            $photo = $_FILES['img'];
             if (!empty($pseudo) && !empty($psw) && !empty($email)) {
                 $url = "";
                 include "To-Do List.php";
-                if (createCustomer($pseudo, $psw, $email)) {
+                if (createCustomer($pseudo, $psw, $email, $photo)) {
                     $succes = "Inscription reussite!";
                     if (getCustomer($pseudo, $psw)) {
                         $_SESSION['name'] = $pseudo;
@@ -33,8 +34,13 @@
         }
     ?>
     <div class="center">
-        <form action="" method="post" class="form-popup">
+        <form action="" method="post" class="form-popup" enctype="multipart/form-data" style="width: 350px;border-radius: 5px;">
             <h1 class="center-text">Inscription</h1>
+            <br>
+            <div style="width: auto;padding-right: 10px;height: auto;" class="center">
+                <img src="icon/user (2).png" class="photo" id="img">
+                <input type="file" class="input-file" accept="image/jpeg, image/png, image/jpg" id="file" name="img" required>
+            </div>
             <br>
             <?php if ($error): ?>
             <p class="message-error center-text"><?= $error;?></p>
@@ -43,20 +49,20 @@
             <?php endif;?>
             <br>
             <div style="width: auto;padding-right: 10px;">
-                <label>Pseudo</label>
-                <input type="text" name="pseudo" placeholder="Entrer votre pseudo ..." value="<?= $pseudo;?>" required>
+                <input type="text" name="pseudo" placeholder="Pseudo ..." value="<?= $pseudo;?>" required>
             </div>
             <div style="width: auto;padding-right: 10px;">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Entrer votre email ..." value="<?= $email;?>" required>
+                <input type="email" name="email" placeholder="Email ..." value="<?= $email;?>" required>
             </div>
-            <div style="width: auto;padding-right: 10px;">
-                <label>Mot de passe</label>
-                <input type="password" name="psw" id="psw" placeholder="Entrer votre mot de passe ..." value="<?= $psw;?>" required>
-                <button type="button" style="width: 30px;height: 30px;position: relative;top: -36px;left: 325px;background: url(icon/hide.png) center no-repeat;background-size: 100%;border: 0;" onclick="password(this)"></button>
+            <div style="width: 97%;height: 36px;padding-right: 10px;background: rgb(204, 197, 197);border-radius: 5px;">
+                <input type="password" style="width: 85%;" name="psw" id="psw" placeholder="Mot de passe ..." value="<?= $psw;?>" required>
+                <input class="eyes" style="" type="button" onclick="password(this)">
             </div>
-            <input type="submit" value="S'inscrire" class="btn">
-            <a href="login.php">se connecter</a>
+            <br>
+            <input type="submit" value="S'inscrire" class="btn center-text" style="border-radius: 5px;height: 40px;">
+            <span class="center-text" style="font-size: 14px;">
+                Si vous possèdez déja un compte ? <br><a href="login.php">login</a>
+            </span>
         </form>
     </div>
     <script src="js/JavaScript.js"></script>

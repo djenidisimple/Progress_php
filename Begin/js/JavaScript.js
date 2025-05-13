@@ -16,3 +16,8 @@ function password(value) {
         document.querySelector("#psw").type = "text";
     }
 }
+let file = document.querySelector("#file");
+let photo = document.querySelector("#img");
+file.onchange = function() {
+    photo.src = URL.createObjectURL(file.files[0]);
+}

@@ -15,18 +15,26 @@ function connexion(): PDO
         return "Connection failed: " . $e->getMessage();
     }
 }
-function createCustomer(string $name, string $psw, string $email)
+function createCustomer(string $name, string $psw, string $email, array $file)
 {
     try {
+        // var_dump(basename($file["name"]));
         $conn = connexion();
-        $sql = "INSERT INTO customer (name, psw, email) VALUES (:name, :psw, :email)";
+        $img = basename($file["name"]);
+        $sql = "INSERT INTO customer (name, psw, email, image) VALUES (:name, :psw, :email, :image)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':name', $name);
         $psw = password_hash($psw, PASSWORD_DEFAULT);
         $stmt->bindParam(':psw', $psw);
         $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':image', $img);
         $stmt->execute();
-        return true;
+        $newfile = "../img/upload" . basename($file["name"]);
+        if (move_uploaded_file($file['tmp_name'], $newfile)) {
+            return true;
+        } else {
+            return false;
+        }
     } catch (PDOException $e) {
         return false;
     }
