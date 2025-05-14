@@ -10,10 +10,10 @@ function closeForm() {
 function password(value) {
     if (value.style.backgroundImage == 'url("icon/view.png")') {
         value.style.backgroundImage = "url(icon/hide.png)";
-        document.querySelector("#psw").type = "password";
+        document.querySelector("#psw").type = "text";
     } else {
         value.style.backgroundImage = "url(icon/view.png)";
-        document.querySelector("#psw").type = "text";
+        document.querySelector("#psw").type = "password";
     }
 }
 let file = document.querySelector("#file");

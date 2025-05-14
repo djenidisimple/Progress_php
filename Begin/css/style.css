@@ -26,7 +26,7 @@ input{
     width: 35px;
     height: 35px;
     margin-left: 2px;
-    background: url(../icon/hide.png) center no-repeat;
+    background: url(../icon/view.png) center no-repeat;
     background-size: 80%;
     border: 0;
 }
@@ -68,11 +68,29 @@ input[type="file"] {
     flex-wrap: wrap;
 }
 .nav-left {
-    position: absolute;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden;
     width: 75px;
     height: 100%;
     border-right: 1px solid rgba(0, 0, 0, 0.3);
     margin-right: 100px;
+}
+.nav {
+    width: 100%;
+    height: 70px;
+    background: white;
+    position: fixed;
+    z-index: 0;
+    padding-top: 8px;
+}
+.hover-gray:hover {
+    background-color: gray;
+}
+.content {
+    margin-left: 75px;
+    padding-left: 20px;
+    padding-top: 80px;
 }
 .align-nav {
     display: flex;
@@ -85,7 +103,7 @@ input[type="file"] {
     height: 40px;
     border-radius: 8px;
     background: transparent;
-    margin: 15px;
+    margin: 20px;
     background-size: 50%;
 }
 .round {
@@ -136,7 +154,7 @@ input[type="file"] {
 .icon-profile {
     border: 2px solid black;
     border-radius: 50px;
-    margin-top: 5px;
+    float: right;
     background: url('../icon/user.png') center no-repeat;
     background-size: 50%;
 }

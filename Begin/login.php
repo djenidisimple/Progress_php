@@ -35,7 +35,7 @@
         }
     ?>
     <div class="center" style="height: 100px;">
-        <form class="form-popup" method="post">
+        <form class="form-popup" method="post" style="width: 350px;">
             <h1 class="center-text">Connexion</h1>
             <br>
             <?php if ($error):?>
@@ -45,17 +45,19 @@
             <?php endif;?>
             <br>
             <div style="width: auto;padding-right: 10px;">
-                <label>Pseudo</label>
-                <input type="text" name="pseudo" placeholder="Entrer ici votre pseudo..." value="<?= $pseudo;?>" required>
+                <input type="text" name="pseudo" placeholder="Pseudo..." value="<?= $pseudo;?>" required>
             </div>
-            <div style="width: auto;padding-right: 10px;">
-                <label>Mot de passe</label>
-                <input type="password" name="psw" id="psw" placeholder="Entrer ici votre mot de passe..." value="<?= $psw;?>" required>
-                <button type="button" style="width: 30px;height: 30px;position: relative;top: -36px;left: 325px;background: url(icon/hide.png) center no-repeat;background-size: 100%;border: 0;" onclick="password(this)"></button>
+            <div style="width: 97%;height: 36px;padding-right: 10px;background: rgb(204, 197, 197);border-radius: 5px;">
+                <input type="password" style="width: 85%;" name="psw" id="psw" placeholder="Mot de passe ..." value="<?= $psw;?>" required>
+                <input class="eyes" type="button" onclick="password(this)">
             </div>
+            <br>
             <button class="btn" type="submit" style="width: 100%;">se connecter</button>
             <br>
-            <a href="Register.php">s'inscrire</a>
+            <span>
+                Si vous n'avez pas de compte ?
+                <a href="Register.php">s'inscrire</a>
+            </span>
         </form>
     </div>
     <script src="js/JavaScript.js"></script>
